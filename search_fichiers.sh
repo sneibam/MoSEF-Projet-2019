@@ -27,4 +27,6 @@ then
 else
 	echo -ne "Vous avez choisi le repertoire '"$directory"'.\n"
 fi
+ 
 
+ls $directory/$1
