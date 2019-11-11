@@ -1,11 +1,9 @@
 #!/bin/bash
 
-
 # Verification du nombre d'arguments
-
-if [ $# -ne 1 ]
+if [ $# -ne 2 ]
 then
-	echo -ne "Nombre de parametres incorrect !\nVoici la syntaxe correct => " $0 " pattern\n"
+	echo -ne "Nombre de parametres incorrect !\nVoici la syntaxe correct => " $0 " pattern_nom_fichier pattern_contenu_fichier\n"
 	exit 2
 fi
 
@@ -29,4 +27,6 @@ else
 fi
  
 
-ls $directory/$1
+#ls $directory/$1
+
+grep -il $2 $directory/$1
