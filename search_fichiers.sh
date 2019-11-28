@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 
 # Verification du nombre d'arguments
-if [ $# -ne 2 ]
+if [ $# -lt 1 ]
 then
-	echo -ne "Nombre de parametres incorrect !\nVoici la syntaxe correct => " $0 " pattern_nom_fichier pattern_contenu_fichier\n"
+	echo "Nombre de parametres incorrect !\nVoici la syntaxe correct => " $0 " pattern_nom_fichier pattern_contenu_fichier\n"
 	exit 2
 fi
 
@@ -20,13 +20,24 @@ read directory
 
 if [ ! -d "$directory" ]
 then
-	echo -ne "Le repertoire '"$directory"' n'existe pas !"
+	echo "Le repertoire '"$directory"' n'existe pas !"
 	exit 4
 else
-	echo -ne "Vous avez choisi le repertoire '"$directory"'.\n"
+	echo "Vous avez choisi le repertoire '"$directory"'.\n"
 fi
  
 
-#ls $directory/$1
+echo "Voici la liste des fichiers qui se trouvent dans le repertoire '"$directory"' : \n"
 
-grep -il $2 $directory/$1
+
+find $directory -maxdepth 1 -iname "$1"
+
+
+if [ $# -eq 2 ]
+then
+
+	echo -n "Voici la liste des fichiers qui se trouvent dans le repertoire '"$directory"' et qui contiennent une ligne avec '"$2"': \n"
+
+	find $directory -maxdepth 1 -iname "$1" -exec grep -EiH "$2" {} +
+
+fi
