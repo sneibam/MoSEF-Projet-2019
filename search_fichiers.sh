@@ -16,7 +16,11 @@ echo 'Bienvenue' $USERNAME ', nous sommes le ' $now
 
 echo "Quel répertoire vous intéresse aujourd'hui ?"
 
+# Lire la saisie de l'utilisateur
 read directory
+
+
+# On vérifie si la chaine entrée par l'utilisateur correspond bien à un répertoire
 
 if [ ! -d "$directory" ]
 then
@@ -32,6 +36,8 @@ echo "Voici la liste des fichiers qui se trouvent dans le repertoire '"$director
 
 find $directory -maxdepth 1 -iname "$1"
 
+
+# Si l'utilisateur a entré un deuxieme argument au script, alors on éxécute la deuxième partie du script
 
 if [ $# -eq 2 ]
 then
