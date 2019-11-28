@@ -12,4 +12,4 @@ L'utilisateur pourra également rechercher uniquement les fichiers qui contienne
 
 Afin d'illustrer les fonctionnalités du script, un répertoire *Test* a été créé. Celui ci contient quelques fichiers de test.
 
-![alt_text](https://github.com/sneibam/MoSEF-Projet-2019/blob/master/Screenshots/partie1.png)
+![alt_text](/Screenshots/partie1.png)
